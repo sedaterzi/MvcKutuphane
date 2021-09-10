@@ -1,0 +1,47 @@
+﻿@model MvcKutuphane.Models.Entity.TBLPERSONEL
+
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@*Data Annotations yapılacak. bunun için Models-Entity-Model.tt-TBLPERSONELDE
+    sorgu yapılacak, kısıtlama getirilecek. karakter sayısı şu kadar olmalı şeklinde. ders 33*@
+
+<html>
+<head>
+    <title>Personel Ekle</title>
+    <style>
+        .input {
+            width: 400px;
+        }
+
+        .yataydiv {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="panel-group">
+    <div class="panel panel-success">
+
+        <h2 style="font-weight:bold ; margin-left: 350px; font-family: sans-serif">Personel Ekle</h2>
+        <div class="panel panel-body" style="margin-left:225px">
+
+            <form class="form-group" method="post">
+
+                <div style="padding:15px 15px">
+                    <label>Personel Adı</label>
+                    <div class="input">
+                        @Html.TextBoxFor(prs => prs.PERSONEL, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        @Html.ValidationMessageFor(prs => prs.PERSONEL, "", new { @Style = "color:red" })
+                    </div>
+                </div>
+
+                <div style="padding:15px 15px">
+                    <button class="btn btn-info" id="Btn1">Personel Ekle</button>
+                </div>
+            </form>
+            </div>
+        </div>
+</body>
+</html>
+

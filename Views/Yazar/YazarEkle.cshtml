@@ -1,0 +1,60 @@
+﻿@model MvcKutuphane.Models.Entity.TBLYAZAR
+@{
+    ViewBag.Title = "YazarEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>Yazar Ekle</title>
+    <style>
+        .input {
+            width: 400px;
+        }
+
+        .yataydiv {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="panel-group">
+    <div class="panel panel-success">
+
+        <h2 style="font-weight:bold ; margin-left: 350px; font-family: sans-serif">Yazar Ekle</h2>
+        <div class="panel panel-body" style="margin-left:225px">
+
+            <form class="form-group" method="post">
+
+                <div style="padding:15px 15px">
+                    <label>Yazar Adı</label>
+                    <div class="input">
+                        @Html.TextBoxFor(y => y.AD, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        @Html.ValidationMessageFor(y => y.AD, "", new { @Style = "color:red" })
+                    </div>
+                </div>
+
+                <div style="padding:15px 15px">
+                    <label>Yazar Soyadı</label>
+                    <div class="input">
+                        @Html.TextBoxFor(y => y.SOYAD, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        @Html.ValidationMessageFor(y => y.SOYAD, "", new { @Style = "color:red" })
+                    </div>
+                </div>
+
+                <div>
+                    <div style="padding:15px 15px">
+                        <label>Yazar Detay Bilgileri</label>
+                        <div class="input">
+                            @Html.TextAreaFor(y => y.DETAY, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:15px; margin-left:15px">
+                    <button class="btn btn-info">Yazar Ekle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

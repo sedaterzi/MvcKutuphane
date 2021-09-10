@@ -1,0 +1,44 @@
+﻿@model MvcKutuphane.Models.Entity.TBLPERSONEL
+
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>Personel Güncelle</title>
+    <style>
+        .input {
+            width: 400px;
+        }
+
+        .yataydiv {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="panel-group">
+    <div class="panel panel-success">
+
+        <h2 style="font-weight:bold ; margin-left: 350px; font-family: sans-serif">Personel Güncelle</h2>
+            <div class="panel panel-body" style="margin-left:225px">
+
+                @using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+                {
+                    <div style="padding:15px 15px"></div>
+                    <div style="padding:15px 15px" class="form-group">
+                        <label>PERSONEL ADI</label>
+                        <div class="input">
+                            @Html.TextBoxFor(prs => prs.PERSONEL, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                    </div>
+                    @Html.HiddenFor(x => x.ID)
+                    <div style="padding:15px 15px">
+                        <button class="btn btn-warning">Güncelle</button>
+                    </div>
+                }
+            </div>
+    </div>
+</body>
+</html>

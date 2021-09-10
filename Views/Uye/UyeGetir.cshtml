@@ -1,0 +1,107 @@
+﻿@model MvcKutuphane.Models.Entity.TBLUYELER
+
+@{
+    ViewBag.Title = "UyeGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>Üye Güncelle</title>
+    <style>
+        .input {
+            width: 400px;
+        }
+
+        .yataydiv {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="panel-group">
+    <div style="margin-top:30px; height:30px;"></div>
+
+    <div class="panel panel-success">
+
+        <h2 style="font-weight:bold ; margin-left: 350px; font-family: sans-serif">Üye Güncelle</h2>
+        <div class="panel panel-body">
+
+            @using (Html.BeginForm("UyeGuncelle", "Uye", FormMethod.Post))
+            {
+
+                <div class="yataydiv">
+                    <div style=" margin-bottom:15px"></div>
+                    <div style="padding:15px 15px" class="form-group">
+                        <label>Uye Adı</label>
+                        <div class="input">
+                            @Html.TextBoxFor(k => k.AD, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                    </div>
+                    <br />
+                    <div style="padding:15px 15px" class="form-group">
+                        <label>Uye Soyadı</label>
+                        <div class="input">
+                            @Html.TextBoxFor(k => k.SOYAD, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="yataydiv">
+                    <div style="padding:15px 15px" class="form-group">
+                        <label>Kullanıcı Adı</label>
+                        <div class="input">
+                            @Html.TextBoxFor(k => k.KULLANICIADI, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                    </div>
+                    <br />
+                    <div style="padding:15px 15px" class="form-group">
+                        <label>Şifre</label>
+                        <div class="input">
+                            @Html.TextBoxFor(k => k.SIFRE, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="yataydiv">
+                    <div style="padding:15px 15px" class="form-group">
+                        <label>Mail Adresi</label>
+                        <div class="input">
+                            @Html.TextBoxFor(k => k.MAIL, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                    </div>
+                    <br />
+                    <div style="padding:15px 15px" class="form-group">
+                        <label>Okul</label>
+                        <div class="input">
+                            @Html.TextBoxFor(k => k.OKUL, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="yataydiv">
+                    <div style="padding:15px 15px" class="form-group">
+                        <label>Telefon</label>
+                        <div class="input">
+                            @Html.TextBoxFor(k => k.TELEFON, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                    </div>
+                    <br />
+                    <div style="padding:15px 15px" class="form-group">
+                        <label>Fotoğraf Linki</label>
+                        <div class="input">
+                            @Html.TextBoxFor(k => k.FOTOGRAF, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                            <p style="color:forestgreen">**Kitabın kapak resmini <a href="https://imgyukle.com/">buraya</a> yükleyerek .jpg uzantılı URL'yi buraya ekleyiniz..</p>
+
+                        </div>
+                    </div>
+                </div>
+                @Html.HiddenFor(x => x.ID)
+
+                <div style="margin:15px 40% 0">
+                    <button class="btn btn-warning">Güncelle</button>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

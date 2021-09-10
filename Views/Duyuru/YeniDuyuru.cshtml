@@ -1,0 +1,55 @@
+﻿@model MvcKutuphane.Models.Entity.TBLDUYURULAR
+@{
+    ViewBag.Title = "YeniDuyuru";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>Yeni Duyuru</title>
+    <style>
+        .input {
+            width: 400px;
+        }
+
+        .yataydiv {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="panel-group">
+    <div class="panel panel-success">
+
+        <h2 style="font-weight:bold ; margin-left: 350px; font-family: sans-serif">Duyuru Ekle</h2>
+        <div class="panel panel-body" style="margin-left:225px">
+            <form class="form-group" method="post">
+                <div></div>
+                <div style="padding:15px 15px">
+                    <label>Duyuru Kategorisi</label>
+                    <div class="input">
+                        @Html.TextBoxFor(x => x.KATEGORI, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        <p style="color:forestgreen">**Örn; Yeni Kitap, İletişim, Kitapları Geciktirmeyin, Diğer </p>
+                    </div>
+
+                </div>
+                <div style="padding:15px 15px">
+                    <label>Duyuru İçerik</label>
+                    <div class="input">
+                        @Html.TextBoxFor(x => x.ICERIK, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                    </div>
+                </div>
+                <div style="padding:15px 15px">
+                    <label>Duyuru Tarih</label>
+                    <div class="input">
+                        @Html.TextBoxFor(x => x.TARIH, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                    </div>
+                </div>
+                <div style="padding:15px 15px">
+                    <button class="btn btn-info" id="Btn1">Duyuru Ekle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

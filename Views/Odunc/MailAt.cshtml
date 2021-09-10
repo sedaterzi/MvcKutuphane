@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "MailAt";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>Mail Gönder</title>
+    <style>
+        .input {
+            width: 400px;
+        }
+
+        .yataydiv {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="panel-group">
+    <div style="margin-top:50px; height:50px;"></div>
+    <div class="panel panel-success" style="width: 1000px;margin-left: 50px;">
+
+        <h2 style="font-weight:bold ; margin-left: 350px; font-family: sans-serif">MailGönder</h2>
+        @using (Html.BeginForm("MailGonder", "Odunc", FormMethod.Post))
+        {
+            <div class="panel panel-body" style="margin-left:225px">
+
+                <form class="form-group" method="post">
+
+                    <div style="padding:15px 15px">
+                        <label>Üyenin Mail Adresi</label>
+                        <div style=" height:20px;"></div>
+
+
+                        <div class="input">
+                            <input type="text" class="form-control" placeholder="Üye E-posta Adresi" required="required" name="email" />
+
+                        </div>
+
+                    </div>
+
+                    <div style="padding:15px 15px">
+
+                        <button type="submit" class="btn btn-primary btn-xl" style="margin-left:150px" >Gönder</button>
+                    </div>
+
+                </form>
+            </div>
+        }
+    </div>
+</body>
+</html>

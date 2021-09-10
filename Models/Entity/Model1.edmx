@@ -1,0 +1,735 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBKUTUPHANEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TBLCEZALAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UYE" Type="int" />
+          <Property Name="PARA" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HAREKET" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLDUYURULAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KATEGORI" Type="nvarchar" MaxLength="50" />
+          <Property Name="ICERIK" Type="nvarchar(max)" />
+          <Property Name="TARIH" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TBLHAKKIMIZDA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACIKLAMA" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TBLHAREKET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KITAP" Type="int" />
+          <Property Name="UYE" Type="int" />
+          <Property Name="PERSONEL" Type="int" />
+          <Property Name="ALISTARIH" Type="smalldatetime" />
+          <Property Name="IADETARIH" Type="smalldatetime" />
+          <Property Name="UYEGETIRTARIH" Type="smalldatetime" />
+          <Property Name="ISLEMDURUM" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLILETISIM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="50" />
+          <Property Name="MAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="KONU" Type="nvarchar" MaxLength="50" />
+          <Property Name="MESAJ" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TBLKATEGORI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="20" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLKITAP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="50" />
+          <Property Name="KATEGORI" Type="tinyint" />
+          <Property Name="YAZAR" Type="int" />
+          <Property Name="BASIMYIL" Type="char" MaxLength="4" />
+          <Property Name="YAYINEVI" Type="varchar" MaxLength="50" />
+          <Property Name="SAYFA" Type="varchar" MaxLength="4" />
+          <Property Name="DURUM" Type="bit" />
+          <Property Name="KITAPRESIM" Type="nvarchar" MaxLength="500" />
+          <Property Name="AÇIKLAMA" Type="nvarchar(max)" />
+          <Property Name="RAF1" Type="varchar" MaxLength="50" />
+          <Property Name="RAF2" Type="varchar" MaxLength="50" />
+          <Property Name="RAF3" Type="varchar" MaxLength="50" />
+          <Property Name="KITAPRAFI" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TBLPERSONEL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PERSONEL" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLSIFREKOD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UYE" Type="int" />
+          <Property Name="KOD" Type="nchar" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="TBLUYELER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOYAD" Type="nvarchar" MaxLength="50" />
+          <Property Name="MAIL" Type="nvarchar" MaxLength="250" />
+          <Property Name="KULLANICIADI" Type="nvarchar" MaxLength="50" />
+          <Property Name="SIFRE" Type="nvarchar" MaxLength="50" />
+          <Property Name="FOTOGRAF" Type="nvarchar" MaxLength="500" />
+          <Property Name="TELEFON" Type="nvarchar" MaxLength="50" />
+          <Property Name="OKUL" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLYAZAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="30" />
+          <Property Name="SOYAD" Type="varchar" MaxLength="30" />
+          <Property Name="DETAY" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <Association Name="FK_TBLCEZALAR_TBLHAREKET">
+          <End Role="TBLHAREKET" Type="Self.TBLHAREKET" Multiplicity="0..1" />
+          <End Role="TBLCEZALAR" Type="Self.TBLCEZALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLHAREKET">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLCEZALAR">
+              <PropertyRef Name="HAREKET" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCEZALAR_TBLUYELER">
+          <End Role="TBLUYELER" Type="Self.TBLUYELER" Multiplicity="0..1" />
+          <End Role="TBLCEZALAR" Type="Self.TBLCEZALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUYELER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLCEZALAR">
+              <PropertyRef Name="UYE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHAREKET_TBLKITAP">
+          <End Role="TBLKITAP" Type="Self.TBLKITAP" Multiplicity="0..1" />
+          <End Role="TBLHAREKET" Type="Self.TBLHAREKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKITAP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHAREKET">
+              <PropertyRef Name="KITAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHAREKET_TBLPERSONEL">
+          <End Role="TBLPERSONEL" Type="Self.TBLPERSONEL" Multiplicity="0..1" />
+          <End Role="TBLHAREKET" Type="Self.TBLHAREKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONEL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHAREKET">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHAREKET_TBLUYELER">
+          <End Role="TBLUYELER" Type="Self.TBLUYELER" Multiplicity="0..1" />
+          <End Role="TBLHAREKET" Type="Self.TBLHAREKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUYELER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHAREKET">
+              <PropertyRef Name="UYE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKITAP_TBLKATEGORI">
+          <End Role="TBLKATEGORI" Type="Self.TBLKATEGORI" Multiplicity="0..1" />
+          <End Role="TBLKITAP" Type="Self.TBLKITAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLKITAP">
+              <PropertyRef Name="KATEGORI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKITAP_TBLYAZAR">
+          <End Role="TBLYAZAR" Type="Self.TBLYAZAR" Multiplicity="0..1" />
+          <End Role="TBLKITAP" Type="Self.TBLKITAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLYAZAR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLKITAP">
+              <PropertyRef Name="YAZAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSIFREKOD_TBLUYELER">
+          <End Role="TBLUYELER" Type="Self.TBLUYELER" Multiplicity="0..1" />
+          <End Role="TBLSIFREKOD" Type="Self.TBLSIFREKOD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUYELER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLSIFREKOD">
+              <PropertyRef Name="UYE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="EnAktifUye" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="EnCokKitapVerenPersonel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="EnCokOkunanKitap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="EnFazlaKitapYazar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <EntityContainer Name="DBKUTUPHANEModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLCEZALAR" EntityType="Self.TBLCEZALAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLDUYURULAR" EntityType="Self.TBLDUYURULAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLHAKKIMIZDA" EntityType="Self.TBLHAKKIMIZDA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLHAREKET" EntityType="Self.TBLHAREKET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLILETISIM" EntityType="Self.TBLILETISIM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLKATEGORI" EntityType="Self.TBLKATEGORI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLKITAP" EntityType="Self.TBLKITAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLPERSONEL" EntityType="Self.TBLPERSONEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSIFREKOD" EntityType="Self.TBLSIFREKOD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLUYELER" EntityType="Self.TBLUYELER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLYAZAR" EntityType="Self.TBLYAZAR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLCEZALAR_TBLHAREKET" Association="Self.FK_TBLCEZALAR_TBLHAREKET">
+            <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
+            <End Role="TBLCEZALAR" EntitySet="TBLCEZALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCEZALAR_TBLUYELER" Association="Self.FK_TBLCEZALAR_TBLUYELER">
+            <End Role="TBLUYELER" EntitySet="TBLUYELER" />
+            <End Role="TBLCEZALAR" EntitySet="TBLCEZALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHAREKET_TBLKITAP" Association="Self.FK_TBLHAREKET_TBLKITAP">
+            <End Role="TBLKITAP" EntitySet="TBLKITAP" />
+            <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHAREKET_TBLPERSONEL" Association="Self.FK_TBLHAREKET_TBLPERSONEL">
+            <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
+            <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHAREKET_TBLUYELER" Association="Self.FK_TBLHAREKET_TBLUYELER">
+            <End Role="TBLUYELER" EntitySet="TBLUYELER" />
+            <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKITAP_TBLKATEGORI" Association="Self.FK_TBLKITAP_TBLKATEGORI">
+            <End Role="TBLKATEGORI" EntitySet="TBLKATEGORI" />
+            <End Role="TBLKITAP" EntitySet="TBLKITAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKITAP_TBLYAZAR" Association="Self.FK_TBLKITAP_TBLYAZAR">
+            <End Role="TBLYAZAR" EntitySet="TBLYAZAR" />
+            <End Role="TBLKITAP" EntitySet="TBLKITAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSIFREKOD_TBLUYELER" Association="Self.FK_TBLSIFREKOD_TBLUYELER">
+            <End Role="TBLUYELER" EntitySet="TBLUYELER" />
+            <End Role="TBLSIFREKOD" EntitySet="TBLSIFREKOD" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBKUTUPHANEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TBLKATEGORI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Boolean" />
+          <NavigationProperty Name="TBLKITAP" Relationship="DBKUTUPHANEModel.FK_TBLKITAP_TBLKATEGORI" FromRole="TBLKATEGORI" ToRole="TBLKITAP" />
+        </EntityType>
+        <EntityType Name="TBLPERSONEL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERSONEL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBLHAREKET" Relationship="DBKUTUPHANEModel.FK_TBLHAREKET_TBLPERSONEL" FromRole="TBLPERSONEL" ToRole="TBLHAREKET" />
+        </EntityType>
+        <EntityType Name="TBLYAZAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SOYAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DETAY" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLKITAP" Relationship="DBKUTUPHANEModel.FK_TBLKITAP_TBLYAZAR" FromRole="TBLYAZAR" ToRole="TBLKITAP" />
+        </EntityType>
+        <EntityContainer Name="DBKUTUPHANEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TBLKATEGORI" EntityType="Self.TBLKATEGORI" />
+          <EntitySet Name="TBLPERSONEL" EntityType="Self.TBLPERSONEL" />
+          <EntitySet Name="TBLYAZAR" EntityType="Self.TBLYAZAR" />
+          <EntitySet Name="TBLHAKKIMIZDA" EntityType="DBKUTUPHANEModel.TBLHAKKIMIZDA" />
+          <EntitySet Name="TBLILETISIM" EntityType="DBKUTUPHANEModel.TBLILETISIM" />
+          <FunctionImport Name="EnFazlaKitapYazar" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnAktifUye" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnCokOkunanKitap" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnCokKitapVerenPersonel" ReturnType="Collection(String)" />
+          <EntitySet Name="TBLDUYURULAR" EntityType="DBKUTUPHANEModel.TBLDUYURULAR" />
+          <EntitySet Name="TBLSIFREKOD" EntityType="DBKUTUPHANEModel.TBLSIFREKOD" />
+          <EntitySet Name="TBLKITAP" EntityType="DBKUTUPHANEModel.TBLKITAP" />
+          <AssociationSet Name="FK_TBLKITAP_TBLKATEGORI" Association="DBKUTUPHANEModel.FK_TBLKITAP_TBLKATEGORI">
+            <End Role="TBLKATEGORI" EntitySet="TBLKATEGORI" />
+            <End Role="TBLKITAP" EntitySet="TBLKITAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKITAP_TBLYAZAR" Association="DBKUTUPHANEModel.FK_TBLKITAP_TBLYAZAR">
+            <End Role="TBLYAZAR" EntitySet="TBLYAZAR" />
+            <End Role="TBLKITAP" EntitySet="TBLKITAP" />
+          </AssociationSet>
+          <EntitySet Name="TBLCEZALAR" EntityType="DBKUTUPHANEModel.TBLCEZALAR" />
+          <EntitySet Name="TBLUYELER" EntityType="DBKUTUPHANEModel.TBLUYELER" />
+          <AssociationSet Name="FK_TBLCEZALAR_TBLUYELER" Association="DBKUTUPHANEModel.FK_TBLCEZALAR_TBLUYELER">
+            <End Role="TBLUYELER" EntitySet="TBLUYELER" />
+            <End Role="TBLCEZALAR" EntitySet="TBLCEZALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSIFREKOD_TBLUYELER" Association="DBKUTUPHANEModel.FK_TBLSIFREKOD_TBLUYELER">
+            <End Role="TBLUYELER" EntitySet="TBLUYELER" />
+            <End Role="TBLSIFREKOD" EntitySet="TBLSIFREKOD" />
+          </AssociationSet>
+          <EntitySet Name="TBLHAREKET" EntityType="DBKUTUPHANEModel.TBLHAREKET" />
+          <AssociationSet Name="FK_TBLCEZALAR_TBLHAREKET" Association="DBKUTUPHANEModel.FK_TBLCEZALAR_TBLHAREKET">
+            <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
+            <End Role="TBLCEZALAR" EntitySet="TBLCEZALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHAREKET_TBLKITAP" Association="DBKUTUPHANEModel.FK_TBLHAREKET_TBLKITAP">
+            <End Role="TBLKITAP" EntitySet="TBLKITAP" />
+            <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHAREKET_TBLPERSONEL" Association="DBKUTUPHANEModel.FK_TBLHAREKET_TBLPERSONEL">
+            <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
+            <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHAREKET_TBLUYELER" Association="DBKUTUPHANEModel.FK_TBLHAREKET_TBLUYELER">
+            <End Role="TBLUYELER" EntitySet="TBLUYELER" />
+            <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="TBLHAKKIMIZDA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLILETISIM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KONU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MESAJ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLDUYURULAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KATEGORI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ICERIK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBLSIFREKOD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UYE" Type="Int32" />
+          <Property Name="KOD" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="TBLUYELER" Relationship="DBKUTUPHANEModel.FK_TBLSIFREKOD_TBLUYELER" FromRole="TBLSIFREKOD" ToRole="TBLUYELER" />
+        </EntityType>
+        <EntityType Name="TBLKITAP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KATEGORI" Type="Byte" />
+          <Property Name="YAZAR" Type="Int32" />
+          <Property Name="BASIMYIL" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="YAYINEVI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SAYFA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Boolean" />
+          <Property Name="KITAPRESIM" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AÇIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KITAPRAFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RAF1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RAF2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RAF3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLKATEGORI" Relationship="DBKUTUPHANEModel.FK_TBLKITAP_TBLKATEGORI" FromRole="TBLKITAP" ToRole="TBLKATEGORI" />
+          <NavigationProperty Name="TBLYAZAR" Relationship="DBKUTUPHANEModel.FK_TBLKITAP_TBLYAZAR" FromRole="TBLKITAP" ToRole="TBLYAZAR" />
+          <NavigationProperty Name="TBLHAREKET" Relationship="DBKUTUPHANEModel.FK_TBLHAREKET_TBLKITAP" FromRole="TBLKITAP" ToRole="TBLHAREKET" />
+        </EntityType>
+        <Association Name="FK_TBLKITAP_TBLKATEGORI">
+          <End Type="DBKUTUPHANEModel.TBLKATEGORI" Role="TBLKATEGORI" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.TBLKITAP" Role="TBLKITAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLKITAP">
+              <PropertyRef Name="KATEGORI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKITAP_TBLYAZAR">
+          <End Type="DBKUTUPHANEModel.TBLYAZAR" Role="TBLYAZAR" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.TBLKITAP" Role="TBLKITAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLYAZAR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLKITAP">
+              <PropertyRef Name="YAZAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TBLCEZALAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UYE" Type="Int32" />
+          <Property Name="PARA" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HAREKET" Type="Int32" />
+          <NavigationProperty Name="TBLUYELER" Relationship="DBKUTUPHANEModel.FK_TBLCEZALAR_TBLUYELER" FromRole="TBLCEZALAR" ToRole="TBLUYELER" />
+          <NavigationProperty Name="TBLHAREKET" Relationship="DBKUTUPHANEModel.FK_TBLCEZALAR_TBLHAREKET" FromRole="TBLCEZALAR" ToRole="TBLHAREKET" />
+        </EntityType>
+        <EntityType Name="TBLUYELER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="KULLANICIADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SIFRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FOTOGRAF" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TELEFON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OKUL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBLCEZALAR" Relationship="DBKUTUPHANEModel.FK_TBLCEZALAR_TBLUYELER" FromRole="TBLUYELER" ToRole="TBLCEZALAR" />
+          <NavigationProperty Name="TBLSIFREKOD" Relationship="DBKUTUPHANEModel.FK_TBLSIFREKOD_TBLUYELER" FromRole="TBLUYELER" ToRole="TBLSIFREKOD" />
+          <NavigationProperty Name="TBLHAREKET" Relationship="DBKUTUPHANEModel.FK_TBLHAREKET_TBLUYELER" FromRole="TBLUYELER" ToRole="TBLHAREKET" />
+        </EntityType>
+        <Association Name="FK_TBLCEZALAR_TBLUYELER">
+          <End Type="DBKUTUPHANEModel.TBLUYELER" Role="TBLUYELER" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.TBLCEZALAR" Role="TBLCEZALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUYELER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLCEZALAR">
+              <PropertyRef Name="UYE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSIFREKOD_TBLUYELER">
+          <End Type="DBKUTUPHANEModel.TBLUYELER" Role="TBLUYELER" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.TBLSIFREKOD" Role="TBLSIFREKOD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUYELER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLSIFREKOD">
+              <PropertyRef Name="UYE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TBLHAREKET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KITAP" Type="Int32" />
+          <Property Name="UYE" Type="Int32" />
+          <Property Name="PERSONEL" Type="Int32" />
+          <Property Name="ALISTARIH" Type="DateTime" Precision="0" />
+          <Property Name="IADETARIH" Type="DateTime" Precision="0" />
+          <Property Name="UYEGETIRTARIH" Type="DateTime" Precision="0" />
+          <Property Name="ISLEMDURUM" Type="Boolean" />
+          <NavigationProperty Name="TBLCEZALAR" Relationship="DBKUTUPHANEModel.FK_TBLCEZALAR_TBLHAREKET" FromRole="TBLHAREKET" ToRole="TBLCEZALAR" />
+          <NavigationProperty Name="TBLKITAP" Relationship="DBKUTUPHANEModel.FK_TBLHAREKET_TBLKITAP" FromRole="TBLHAREKET" ToRole="TBLKITAP" />
+          <NavigationProperty Name="TBLPERSONEL" Relationship="DBKUTUPHANEModel.FK_TBLHAREKET_TBLPERSONEL" FromRole="TBLHAREKET" ToRole="TBLPERSONEL" />
+          <NavigationProperty Name="TBLUYELER" Relationship="DBKUTUPHANEModel.FK_TBLHAREKET_TBLUYELER" FromRole="TBLHAREKET" ToRole="TBLUYELER" />
+        </EntityType>
+        <Association Name="FK_TBLCEZALAR_TBLHAREKET">
+          <End Type="DBKUTUPHANEModel.TBLHAREKET" Role="TBLHAREKET" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.TBLCEZALAR" Role="TBLCEZALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLHAREKET">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLCEZALAR">
+              <PropertyRef Name="HAREKET" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHAREKET_TBLKITAP">
+          <End Type="DBKUTUPHANEModel.TBLKITAP" Role="TBLKITAP" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.TBLHAREKET" Role="TBLHAREKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKITAP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHAREKET">
+              <PropertyRef Name="KITAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHAREKET_TBLPERSONEL">
+          <End Type="DBKUTUPHANEModel.TBLPERSONEL" Role="TBLPERSONEL" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.TBLHAREKET" Role="TBLHAREKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONEL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHAREKET">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHAREKET_TBLUYELER">
+          <End Type="DBKUTUPHANEModel.TBLUYELER" Role="TBLUYELER" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.TBLHAREKET" Role="TBLHAREKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUYELER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHAREKET">
+              <PropertyRef Name="UYE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBKUTUPHANEModelStoreContainer" CdmEntityContainer="DBKUTUPHANEEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLKATEGORI">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLKATEGORI">
+              <MappingFragment StoreEntitySet="TBLKATEGORI">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLPERSONEL">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLPERSONEL">
+              <MappingFragment StoreEntitySet="TBLPERSONEL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLYAZAR">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLYAZAR">
+              <MappingFragment StoreEntitySet="TBLYAZAR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+                <ScalarProperty Name="DETAY" ColumnName="DETAY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLHAKKIMIZDA">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLHAKKIMIZDA">
+              <MappingFragment StoreEntitySet="TBLHAKKIMIZDA">
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLILETISIM">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLILETISIM">
+              <MappingFragment StoreEntitySet="TBLILETISIM">
+                <ScalarProperty Name="MESAJ" ColumnName="MESAJ" />
+                <ScalarProperty Name="KONU" ColumnName="KONU" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EnFazlaKitapYazar" FunctionName="DBKUTUPHANEModel.Store.EnFazlaKitapYazar" />
+          <FunctionImportMapping FunctionImportName="EnAktifUye" FunctionName="DBKUTUPHANEModel.Store.EnAktifUye" />
+          <FunctionImportMapping FunctionImportName="EnCokOkunanKitap" FunctionName="DBKUTUPHANEModel.Store.EnCokOkunanKitap" />
+          <FunctionImportMapping FunctionImportName="EnCokKitapVerenPersonel" FunctionName="DBKUTUPHANEModel.Store.EnCokKitapVerenPersonel" />
+          <EntitySetMapping Name="TBLDUYURULAR">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLDUYURULAR">
+              <MappingFragment StoreEntitySet="TBLDUYURULAR">
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ICERIK" ColumnName="ICERIK" />
+                <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSIFREKOD">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLSIFREKOD">
+              <MappingFragment StoreEntitySet="TBLSIFREKOD">
+                <ScalarProperty Name="KOD" ColumnName="KOD" />
+                <ScalarProperty Name="UYE" ColumnName="UYE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLKITAP">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLKITAP">
+              <MappingFragment StoreEntitySet="TBLKITAP">
+                <ScalarProperty Name="RAF3" ColumnName="RAF3" />
+                <ScalarProperty Name="RAF2" ColumnName="RAF2" />
+                <ScalarProperty Name="RAF1" ColumnName="RAF1" />
+                <ScalarProperty Name="KITAPRAFI" ColumnName="KITAPRAFI" />
+                <ScalarProperty Name="AÇIKLAMA" ColumnName="AÇIKLAMA" />
+                <ScalarProperty Name="KITAPRESIM" ColumnName="KITAPRESIM" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+                <ScalarProperty Name="SAYFA" ColumnName="SAYFA" />
+                <ScalarProperty Name="YAYINEVI" ColumnName="YAYINEVI" />
+                <ScalarProperty Name="BASIMYIL" ColumnName="BASIMYIL" />
+                <ScalarProperty Name="YAZAR" ColumnName="YAZAR" />
+                <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLCEZALAR">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLCEZALAR">
+              <MappingFragment StoreEntitySet="TBLCEZALAR">
+                <ScalarProperty Name="HAREKET" ColumnName="HAREKET" />
+                <ScalarProperty Name="PARA" ColumnName="PARA" />
+                <ScalarProperty Name="UYE" ColumnName="UYE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLUYELER">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLUYELER">
+              <MappingFragment StoreEntitySet="TBLUYELER">
+                <ScalarProperty Name="OKUL" ColumnName="OKUL" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="FOTOGRAF" ColumnName="FOTOGRAF" />
+                <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+                <ScalarProperty Name="KULLANICIADI" ColumnName="KULLANICIADI" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLHAREKET">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLHAREKET">
+              <MappingFragment StoreEntitySet="TBLHAREKET">
+                <ScalarProperty Name="ISLEMDURUM" ColumnName="ISLEMDURUM" />
+                <ScalarProperty Name="UYEGETIRTARIH" ColumnName="UYEGETIRTARIH" />
+                <ScalarProperty Name="IADETARIH" ColumnName="IADETARIH" />
+                <ScalarProperty Name="ALISTARIH" ColumnName="ALISTARIH" />
+                <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+                <ScalarProperty Name="UYE" ColumnName="UYE" />
+                <ScalarProperty Name="KITAP" ColumnName="KITAP" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

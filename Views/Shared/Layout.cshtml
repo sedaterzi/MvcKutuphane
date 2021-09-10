@@ -1,0 +1,115 @@
+﻿
+@{
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #23293c;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #23293c;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #363c4d;
+            }
+
+        .sidebar {
+            height: 100%;
+            width: 240px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #23293c;
+            overflow-x: hidden;
+            padding-top: 16px;
+            scrollbar-arrow-color: aqua;
+        }
+
+            .sidebar a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 19px;
+                color: #ffffff;
+                display: block;
+            }
+
+                .sidebar a:hover {
+                    color: #41bad0;
+                }
+
+        .main {
+            margin-left: 240px; /* Same as the width of the sidenav */
+            padding: 0px 20px;
+            background-color: #F0F7F5;
+        }
+
+        @@media screen and (max-height: 100px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+                .sidebar a {
+                    font-size: 16px;
+                }
+        }
+
+        .masthead-avatar {
+            width: 12rem;
+        }
+
+        .mb-5,
+        .my-5 {
+            margin-bottom: 3rem !important;
+            margin-left: 3rem !important;
+        }
+    </style>
+</head>
+<body style="background-color: #F0F7F5">
+
+    <div class="sidebar ">
+        <a href="/istatistik/HavaKart/"><img class="masthead-avatar mb-5" src="~/web/img/book.png" alt=""></a>
+        <a href="/istatistik/HavaKart/"><i class="glyphicon glyphicon-home"></i>&nbsp; Ana Sayfa</a>
+        <a href="/Kategori/Index"><i class="glyphicon glyphicon-list"></i>&nbsp; Kategoriler</a>
+        <a href="/Kitap/Index/"><i class="glyphicon glyphicon-book"></i>&nbsp; Kitaplar</a>
+        <a href="/Yazar/Index/"><i class="glyphicon glyphicon-pencil"></i>&nbsp; Yazarlar</a>
+        <a href="/Uye/Index/"><i class="glyphicon glyphicon-user"></i>&nbsp; Üyeler</a>
+        <a href="/Personel/Index/"><i class="glyphicon glyphicon-tower"></i>&nbsp; Personeller</a>
+        <a href="/Odunc/OduncVer/"><i class="glyphicon glyphicon-circle-arrow-right"></i>&nbsp; Ödünç Kitap Ver</a>
+        <a href="/Odunc/Index/"><i class="glyphicon glyphicon-circle-arrow-left"></i>&nbsp; Ödünçtekiler</a>
+        <a href="/islem/Index/"><i class="glyphicon glyphicon-folder-open"></i>&nbsp; Ödünç Arşivi</a>
+        <a href="/Duyuru/Index/"><i class="glyphicon glyphicon-volume-up"></i>&nbsp; Duyurular</a>
+        <a href="/istatistik/LinqKart/"><i class="glyphicon glyphicon-bookmark"></i>&nbsp;İstatistikler</a>
+        <a href="/istatistik/Index/"><i class="glyphicon glyphicon-signal"></i>&nbsp; Analizler</a>
+        <a href="/istatistik/Galeri/"><i class="glyphicon glyphicon-picture"></i>&nbsp; Galeri</a>
+        <a href="/vitrin/Index/"><i class="glyphicon glyphicon-gift"></i>&nbsp; Vitrin</a>
+
+
+    </div>
+
+    <div class="main">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

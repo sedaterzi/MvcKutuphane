@@ -1,0 +1,82 @@
+﻿@model MvcKutuphane.Models.Entity.TBLHAREKET
+@{
+    ViewBag.Title = "Odunciade";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>Ödünç Detayları</title>
+    <style>
+        .input {
+            width: 400px;
+        }
+
+        .yataydiv {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="panel-group">
+    <div class="panel panel-success">
+        <h2 style="font-weight:bold ; margin-left: 350px; font-family: sans-serif">@ViewBag.dgr1 Numaralı İşlem Detayı</h2>
+        <div class="panel panel-body" style="margin-left:225px">
+           
+                <div style="margin-bottom:15px"></div>
+                <div class="form-group">
+                    <div class="yataydiv">
+                        <div style="padding:15px 15px">
+                            <label>İşlem Numarası</label>
+                            @Html.TextBoxFor(k => k.ID, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                        <br />
+                        <div style="padding:15px 15px">
+                            <label>Kitap Adı</label>
+                            @Html.TextBoxFor(k => k.TBLKITAP.AD, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                        <br />
+                    </div>
+                    <div class="yataydiv">
+                        <div style="padding:15px 15px">
+                            <label>Üye</label>
+                            @Html.TextBoxFor(k => k.TBLUYELER.AD, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                        <br />
+                        <div style="padding:15px 15px">
+                            <label>Personel</label>
+                            @Html.TextBoxFor(k => k.TBLPERSONEL.PERSONEL, new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                        <br />
+                    </div>
+                    <div class="yataydiv">
+                        <div style="padding:15px 15px">
+                            <label>Alış Tarihi</label>
+                            @Html.TextBoxFor(k => k.ALISTARIH, "{0: dd.MM.yyyy}", new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                        <br />
+                        <div style="padding:15px 15px">
+                            <label>İade Edilmesi Gereken Tarih</label>
+                            @Html.TextBoxFor(k => k.IADETARIH, "{0: dd.MM.yyyy}", new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                        <br />
+                    </div>
+                    <div class="yataydiv">
+                        <div style="padding:15px 15px">
+                            <label> İade Ediliş Tarihi</label>
+                            @Html.TextBoxFor(k => k.UYEGETIRTARIH, "{0: dd.MM.yyyy}", new { @class = "form-control", @style = "background-color:#f1f1f1;" })
+                        </div>
+                        <br />
+                        <div style="padding:15px 15px">
+                            <label>İade Durumu</label>
+                            <input style="background-color:#f1f1f1;" type="text" class="form-control" id="Gecinput" value="@ViewBag.dgr" />
+                        </div>
+                    </div>
+                </div>
+                
+
+            
+
+        </div>
+    </div>
+</body>
+</html>
