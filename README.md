@@ -12,6 +12,3 @@ KAZANÇLAR:
 
 Bir amaç doğrultusunda amaca hizmet edebilen bir web sitesinin ön-yüz, arka-yüz ve de veritabanı olmak üzere başlıca üç temel yapı bakımından da geliştirebilme kazanımını elde ettim. Bu sayede web uygulaması üzerinde bahsi geçen diğer teknolojilerden de yararlanarak Full Stack Developer olma yolunda ilk adımımı atmış bulunuyorum.
 
-PROJE DETAY RAPORU
-
-[MVC_KYS_Rapor.pdf](https://github.com/sedaterzi/MvcKutuphane/files/7330725/MVC_KYS_Rapor.pdf)
